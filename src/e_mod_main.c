@@ -575,23 +575,26 @@ _ngi_win_new(Ng *ng)
    switch (ng->cfg->stacking)
      {
       case below_fullscreen:
-	 e_container_window_raise(ng->zone->container, win->evas_win, 150);
-	 if (ng->cfg->lock_deskswitch)
+	 e_container_window_raise(ng->zone->container, win->evas_win, E_LAYER_ABOVE);
+         if (ng->cfg->lock_deskswitch)
 	   e_container_window_raise(ng->zone->container, win->edge, 999);
 	 else
-	   e_container_window_raise(ng->zone->container, win->edge, 150);
-	 e_container_window_raise(ng->zone->container, win->input, 150);
+	   e_container_window_raise(ng->zone->container, win->edge, E_LAYER_ABOVE);
+         
+         e_container_window_raise(ng->zone->container, win->input, E_LAYER_ABOVE);
 	 break;
+
       case on_desk:
 	 if (ng->cfg->lock_deskswitch)
 	   e_container_window_raise(ng->zone->container, win->edge, 999);
 	 else
-	   e_container_window_raise(ng->zone->container, win->edge, 50);
+	   e_container_window_raise(ng->zone->container, win->edge, E_LAYER_BELOW);
 
-	 e_container_window_raise(ng->zone->container, win->input, 50);
+	 e_container_window_raise(ng->zone->container, win->input, E_LAYER_BELOW);
 	 break;  
+
       case above_all:
-	 e_container_window_raise(ng->zone->container, win->evas_win, 250);
+	 e_container_window_raise(ng->zone->container, win->evas_win, E_LAYER_FULLSCREEN);
 	 e_container_window_raise(ng->zone->container, win->input, 999);
      }
 
