@@ -8,7 +8,7 @@ static void _ngi_gadcon_item_cb_free(Ngi_Item *it);
 static void *_create_data(E_Config_Dialog *cfd);
 static void _free_data(E_Config_Dialog *cfd, E_Config_Dialog_Data *cfdata);
 static Evas_Object *_basic_create(E_Config_Dialog *cfd, Evas *evas, E_Config_Dialog_Data *cfdata);
-static int _cb_mod_update(void *data, int type, void *event);
+static Eina_Bool _cb_mod_update(void *data, int type, void *event);
 static void _avail_list_cb_change(void *data, Evas_Object *obj);
 static void _sel_list_cb_change(void *data, Evas_Object *obj);
 static void _load_avail_gadgets(void *data);
@@ -462,7 +462,7 @@ _basic_create(E_Config_Dialog *cfd, Evas *evas, E_Config_Dialog_Data *cfdata)
    return o;
 }
 
-static int
+static Eina_Bool
 _cb_mod_update(void *data, int type, void *event)
 {
    E_Config_Dialog_Data *cfdata = NULL;
@@ -613,13 +613,15 @@ static void
 _cb_add(void *data, void *data2)
 {
    E_Config_Dialog_Data *cfdata = NULL;
-   Eina_List *l = NULL, *g = NULL;
+   Eina_List *l = NULL, *g = NULL, *al = NULL;
    int i = 0, update = 0;
 
    char *gadcon_name;
 
    if (!(cfdata = data)) return;
-   for (i = 0, l = e_widget_ilist_items_get(cfdata->o_avail); l; l = l->next, i++)
+
+   al = eina_list_clone(e_widget_ilist_items_get(cfdata->o_avail));
+   for (i = 0, l = al; l; l = l->next, i++)
      {
         E_Ilist_Item *item = NULL;
         const char *name = NULL;
@@ -673,6 +675,7 @@ _cb_add(void *data, void *data2)
 	  }
 
      }
+   eina_list_free(al);
    if (update)
      {
 	// e_gadcon_unpopulate(cfdata->gc);
@@ -708,15 +711,14 @@ static void
 _cb_del(void *data, void *data2)
 {
    E_Config_Dialog_Data *cfdata = NULL;
-   Eina_List *l = NULL, *g = NULL;
+   Eina_List *l = NULL, *g = NULL, *sl = NULL;
    int i = 0, update = 0;
    Ngi_Item *it;
 
    if (!(cfdata = data)) return;
 
-
-
-   for (i = 0, l = e_widget_ilist_items_get(cfdata->o_sel); l; l = l->next, i++)
+   sl = eina_list_clone(e_widget_ilist_items_get(cfdata->o_sel));
+   for (i = 0, l = sl; l; l = l->next, i++)
      {
 	E_Ilist_Item *item = NULL;
 	E_Config_Gadcon_Client *cgc;
@@ -747,6 +749,7 @@ _cb_del(void *data, void *data2)
 	     update = 1;
 	  }
      }
+   eina_list_free(sl);
    if (update)
      {
 	_load_sel_gadgets(cfdata);
