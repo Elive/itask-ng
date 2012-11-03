@@ -3,17 +3,17 @@ dnl Process this file with autoconf to produce a configure script.
 # get rid of that stupid cache mechanism
 rm -f config.cache
 
-AC_INIT(itask-ng, 0.3.0, hannes.janetzek@gmail.com)
+AC_INIT(itask-ng, 0.4.0, hannes.janetzek@gmail.com)
 AC_PREREQ(2.52)
-
+AC_CONFIG_SRCDIR(configure.ac)
 AC_CANONICAL_BUILD
 AC_CANONICAL_HOST
-
-AM_INIT_AUTOMAKE(1.6)
-AC_CONFIG_SRCDIR(configure.ac)
-AM_CONFIG_HEADER(config.h)
-
 AC_ISC_POSIX
+
+AM_INIT_AUTOMAKE(1.8)
+AM_CONFIG_HEADER(config.h)
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
 AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
@@ -21,8 +21,24 @@ AC_C_CONST
 AM_ENABLE_SHARED
 AC_PROG_LIBTOOL
 
+define([AC_LIBTOOL_LANG_CXX_CONFIG], [:])dnl
+define([AC_LIBTOOL_LANG_F77_CONFIG], [:])dnl
+AC_PROG_LIBTOOL
+
+AC_DISABLE_STATIC
+
+m4_ifdef([AM_GNU_GETTEXT_VERSION], [
+AM_GNU_GETTEXT_VERSION([0.18])
+])
+
+m4_ifdef([AM_GNU_GETTEXT], [
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION(0.14)
+po_makefile_in=po/Makefile.in
+AM_CONDITIONAL([HAVE_PO], [true])
+],[
+AM_CONDITIONAL([HAVE_PO], [false])
+])
+AC_SUBST(LTLIBINTL)
 
 release=$(pkg-config --variable=release enlightenment)
 MODULE_ARCH="$host_os-$host_cpu-$release"
@@ -61,4 +77,11 @@ module.desktop
 po/Makefile.in
 ],[
 ])
-
+echo
+cat << SUMMARY_EOF
+Summary:
+ * project.........: $PACKAGE $VERSION
+ * install.........: $datadir
+ * CFLAGS..........: $CFLAGS
+ * LDFLAGS.........: $LDFLAGS
+SUMMARY_EOF
