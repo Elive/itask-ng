@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/767/trunk/itask-ng/src
+END
+ng_gadcon.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/761/trunk/itask-ng/src/ng_gadcon.c
+END
+ng_config_instances.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/767/trunk/itask-ng/src/ng_config_instances.c
+END
+ng_item.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/756/trunk/itask-ng/src/ng_item.c
+END
+ng_border_menu.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/767/trunk/itask-ng/src/ng_border_menu.c
+END
+ng_launcher.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/758/trunk/itask-ng/src/ng_launcher.c
+END
+e_mod_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/767/trunk/itask-ng/src/e_mod_main.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/752/trunk/itask-ng/src/Makefile.am
+END
+ng_config.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/767/trunk/itask-ng/src/ng_config.c
+END
+ng_taskbar.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/758/trunk/itask-ng/src/ng_taskbar.c
+END
+e_mod_main.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/756/trunk/itask-ng/src/e_mod_main.h
+END
+ng_box.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/756/trunk/itask-ng/src/ng_box.c
+END

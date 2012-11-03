@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/745/trunk/itask-ng/data/themes
+END
+module_icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/217/trunk/itask-ng/data/themes/module_icon.png
+END
+itask_im0.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/675/trunk/itask-ng/data/themes/itask_im0.png
+END
+itask_im1.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/675/trunk/itask-ng/data/themes/itask_im1.png
+END
+itask_im2.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/675/trunk/itask-ng/data/themes/itask_im2.png
+END
+ibar_im0.png
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/676/trunk/itask-ng/data/themes/ibar_im0.png
+END
+itask_im3.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/675/trunk/itask-ng/data/themes/itask_im3.png
+END
+itask-ng.edc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/745/trunk/itask-ng/data/themes/itask-ng.edc
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/745/trunk/itask-ng/data/themes/Makefile.am
+END
+bg.png
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/217/trunk/itask-ng/data/themes/bg.png
+END
+bg_detour.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/217/trunk/itask-ng/data/themes/bg_detour.png
+END
